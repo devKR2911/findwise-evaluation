@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button class="base-button" :title="info">
+        <button class="base-button" :title="info" @click="$emit('clicked')">
             <div class="left-img" :class="{ 'rotate': isLeftIconRotating }">
                 <slot name="left-icon"></slot>
             </div>
@@ -17,6 +17,7 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
     name: "CButton",
+    emits: ['clicked'],
     props: {
         label: {
             type: String,
