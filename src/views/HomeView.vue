@@ -17,15 +17,21 @@
         </template>
       </CButton>
 
-      <CButton label="View" info="This is a View button having icon on left">
+      <CButton label="View" info="This is a View button having icon on left" :isLeftIconRotating="true">
         <template v-slot:left-icon>
+          <img src="@/assets/icons/loader.svg" alt="Delete Icon" />
+        </template>
+        <template v-slot:right-icon>
           <img src="@/assets/icons/view.svg" alt="View Icon" />
         </template>
       </CButton>
 
-      <CButton label="Delete" info="This is a Delete button">
-        <template v-slot:right-icon>
+      <CButton label="Delete" info="This is a Delete button on left and loader on right" :isRightIconRotating="true">
+        <template v-slot:left-icon>
           <img src="@/assets/icons/delete.svg" alt="Delete Icon" />
+        </template>
+        <template v-slot:right-icon>
+          <img src="@/assets/icons/loader.svg" alt="Delete Icon" />
         </template>
       </CButton>
 

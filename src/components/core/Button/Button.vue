@@ -1,9 +1,13 @@
 <template>
     <div>
         <button class="base-button" :title="info">
-            <slot name="left-icon"></slot>
+            <div class="left-img" :class="{ 'rotate': isLeftIconRotating }">
+                <slot name="left-icon"></slot>
+            </div>
             {{ label }}
-            <slot name="right-icon"></slot>
+            <div class="right-img" :class="{ 'rotate': isRightIconRotating }">
+                <slot name="right-icon"></slot>
+            </div>
         </button>
     </div>
 </template>
@@ -23,6 +27,16 @@ export default defineComponent({
             type: String,
             required: false,
             default: "",
+        },
+        isLeftIconRotating: {
+            type: Boolean,
+            required: false,
+            default: false
+        },
+        isRightIconRotating: {
+            type: Boolean,
+            required: false,
+            default: false
         }
     },
     setup() {
@@ -44,9 +58,24 @@ export default defineComponent({
     background: #d4d4d4;
     min-height: 30px;
     img {
-        max-width: 20px;
+        width: 100%;
+    }
+    .left-img,
+    .right-img {
         margin: 0 5px;
-        max-height: 15px;
+        max-width: 20px;
+        max-height: 20px;
+    }
+    .rotate {
+        animation: cyclic 2s infinite linear;
+    }
+    @keyframes cyclic {
+        from {
+            -webkit-transform: rotate(0deg);
+        }
+        to {
+            -webkit-transform: rotate(359deg);
+        }
     }
 }
 </style>
