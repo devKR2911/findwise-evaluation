@@ -1,8 +1,9 @@
 <template>
     <div>
         <button class="base-button" :title="info">
+            <slot name="left-icon"></slot>
             {{ label }}
-            <slot name="icon"></slot>
+            <slot name="right-icon"></slot>
         </button>
     </div>
 </template>
@@ -44,7 +45,7 @@ export default defineComponent({
     min-height: 30px;
     img {
         max-width: 20px;
-        margin-left: 5px;
+        margin: 0 5px;
         max-height: 15px;
     }
 }
