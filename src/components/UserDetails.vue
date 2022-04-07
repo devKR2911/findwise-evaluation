@@ -2,11 +2,32 @@
     <div class="container">
         <h2>User Details</h2>
         <CCard>
-            <template v-slot:card-title>
-                <h3>Card Title</h3>
+            <template v-slot:card-title v-if="userDetails">
+                <div class="user-title">
+                    <h3>
+                        {{ userDetails.name.title }}
+                        {{ userDetails.name.first }}
+                        {{ userDetails.name.last }}
+                    </h3>
+                    <img :src="userDetails.picture.thumbnail" alt class="avatar" />
+                </div>
             </template>
-            <template v-slot:card-description>
-                <h3>{{ userDetails }}</h3>
+            <template v-slot:card-description v-if="userDetails">
+                <div class="location-details">
+                    Location:
+                    {{ userDetails.location.street.number }},
+                    {{ userDetails.location.street.name }},
+                    {{ userDetails.location.city }}
+                    {{ userDetails.location.state }}
+                    {{ userDetails.location.country }}
+                </div>
+                <div class="age-details">
+                    <p>
+                        Date of birth
+                        {{ userDetails.dob.date }}
+                    </p>
+                    <p>Age {{ userDetails.dob.age }}</p>
+                </div>
             </template>
             <template v-slot:card-footer>
                 <CButton
@@ -47,4 +68,12 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.user-title {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    .avatar {
+        border-radius: 50%;
+    }
+}
 </style>

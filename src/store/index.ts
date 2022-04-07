@@ -1,8 +1,11 @@
 import { createStore } from 'vuex'
+import axios from 'axios';
+
+const END_POINT = "https://randomuser.me/api/";
 
 export default createStore({
   state: {
-    userDetails: {}
+    userDetails: null
   },
   getters: {
     getUserDetails(state, getters) {
@@ -16,7 +19,12 @@ export default createStore({
   },
   actions: {
     fetchUserDetails(context) {
-      context.commit('setUserDetails', {name: 'user'})
+      axios.get(END_POINT).then((res) => {
+        console.log(res.data.results[0]);
+        context.commit('setUserDetails', res.data.results[0]);
+      }).catch((err) => {
+        console.log(err)
+      })
     }
   },
   modules: {
