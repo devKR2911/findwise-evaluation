@@ -1,5 +1,6 @@
 <template>
-    <div class="home">
+    <div class="container">
+        <h2>Button List</h2>
         <div class="button-container">
             <CButton label="Save" info="This is a Save button having icon on both sides">
                 <template v-slot:right-icon>
@@ -63,5 +64,6 @@ export default defineComponent({
 .button-container {
     display: flex;
     justify-content: space-between;
+    flex: 1;
 }
 </style>
