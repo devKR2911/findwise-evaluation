@@ -6,7 +6,7 @@
                 <h3>Card Title</h3>
             </template>
             <template v-slot:card-description>
-                <h3>Card Description</h3>
+                <h3>{{ userDetails }}</h3>
             </template>
             <template v-slot:card-footer>
                 <CButton
@@ -21,9 +21,11 @@
 
 <script lang="ts">
 
-import { defineComponent } from 'vue';
+import { computed, defineComponent } from 'vue';
 import CCard from '@/components/core/Card/Card.vue';
 import CButton from '@/components/core/Button/Button.vue';
+
+import store from '@/store';
 
 export default defineComponent({
     name: 'CUserDetails',
@@ -32,11 +34,13 @@ export default defineComponent({
         CButton,
     },
     setup() {
+        const userDetails = computed(() => store.getters.getUserDetails);
         function fetchUserDetails() {
-            console.log('fetchUserDetails');
+            store.dispatch("fetchUserDetails");
         }
         return {
             fetchUserDetails,
+            userDetails,
         }
     }
 });
