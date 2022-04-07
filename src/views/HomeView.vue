@@ -1,22 +1,22 @@
 <template>
   <div class="home">
     <div class="button-container">
-      <CButton label="Save">
+      <CButton label="Save" info="This is a Save button">
         <template v-slot:icon>
           <img src="@/assets/icons/save.svg" alt="Save Icon" />
         </template>
       </CButton>
-      <CButton label="Edit">
+      <CButton label="Edit" info="This is an Edit button">
         <template v-slot:icon>
           <img src="@/assets/icons/edit.svg" alt="Edit Icon" />
         </template>
       </CButton>
-      <CButton label="View">
+      <CButton label="View" info="This is a View button">
         <template v-slot:icon>
           <img src="@/assets/icons/view.svg" alt="View Icon" />
         </template>
       </CButton>
-      <CButton label="Delete">
+      <CButton label="Delete" info="This is a Delete button">
         <template v-slot:icon>
           <img src="@/assets/icons/delete.svg" alt="Delete Icon" />
         </template>

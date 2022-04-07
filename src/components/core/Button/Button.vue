@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button class="base-button">
+        <button class="base-button" :title="info">
             {{ label }}
             <slot name="icon"></slot>
         </button>
@@ -14,6 +14,11 @@ export default defineComponent({
     name: "CButton",
     props: {
         label: {
+            type: String,
+            required: false,
+            default: "",
+        },
+        info: {
             type: String,
             required: false,
             default: "",
@@ -40,6 +45,7 @@ export default defineComponent({
     img {
         max-width: 20px;
         margin-left: 5px;
+        max-height: 15px;
     }
 }
 </style>
