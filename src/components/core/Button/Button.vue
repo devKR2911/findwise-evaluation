@@ -1,6 +1,9 @@
 <template>
     <div>
-        <button>{{ label }}</button>
+        <button class="base-button">
+            {{ label }}
+            <slot name="icon"></slot>
+        </button>
     </div>
 </template>
 <script lang="ts">
@@ -26,5 +29,17 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-
+.base-button {
+    display: flex;
+    padding: 5px 15px;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    background: #d4d4d4;
+    min-height: 30px;
+    img {
+        max-width: 20px;
+        margin-left: 5px;
+    }
+}
 </style>
