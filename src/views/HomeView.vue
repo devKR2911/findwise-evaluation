@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <CButtonList />
+    <CUserDetails />
   </div>
 </template>
 
@@ -8,11 +9,13 @@
 
 import { defineComponent } from 'vue';
 import CButtonList from '@/components/ButtonList.vue';
+import CUserDetails from '@/components/UserDetails.vue';
 
 export default defineComponent({
   name: 'HomeView',
   components: {
     CButtonList,
+    CUserDetails,
   },
 });
 </script>
